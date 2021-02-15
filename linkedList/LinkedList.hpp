@@ -39,7 +39,9 @@ int LinkedList<T>::size() const
 			count++;
 			temp = temp->getNext();
 		}
+	m_size = count; 
 	return(count);
+
 }
 
 template <typename T>
@@ -51,10 +53,23 @@ bool LinkedList<T>::search(T value) const
 	/** TODO 
 		Fix this method
 	*/
+	for(int i = 1; i < size(); i++)
+		{
+			if(getEntry()== value)
+			{
+				isFound = true;
+			}
+			else if (getEntry()!= value )
+			{
+				temp = temp->getNext();
+				
+			}
 
+		}	
 
 	return(isFound);
-}
+	}
+
 
 template <typename T>
 std::vector<T> LinkedList<T>::toVector() const
