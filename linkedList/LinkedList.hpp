@@ -34,12 +34,12 @@ int LinkedList<T>::size() const
 	*/ 
 	int count = 0;
 	Node<T>* temp = m_front;
-		while(temp->getNext() != nullptr)
+		while(temp != nullptr)
 		{	
 			count++;
 			temp = temp->getNext();
 		}
-	m_size = count; 
+	
 	return(count);
 
 }
@@ -53,19 +53,16 @@ bool LinkedList<T>::search(T value) const
 	/** TODO 
 		Fix this method
 	*/
-	for(int i = 1; i < size(); i++)
-		{
-			if(getEntry()== value)
-			{
-				isFound = true;
-			}
-			else if (getEntry()!= value )
-			{
-				temp = temp->getNext();
-				
-			}
 
-		}	
+	while (temp != nullptr)
+	{
+		
+		if(temp->getValue()==value)
+		{
+			isFound = true;
+		}
+		temp= temp->getNext();
+	}
 
 	return(isFound);
 	}
